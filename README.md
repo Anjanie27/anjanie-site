@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Anjanie’s Website
 
-## Getting Started
+Welcome! This is a simple **Next.js** website project.
+Next.js is a tool that helps you build fast and modern websites using **React**.
 
-First, run the development server:
+---
+
+## 🧩 What’s Inside
+
+Here’s what the folders and files mean:
+
+anjanie-website/
+├── public/ ← Images and icons that show up on the website
+├── src/app/ ← The main part of the website (your pages + styles)
+│ ├── globals.css ← The file where you add your website’s colors and styles (we can also use tailwind for easier styling)
+│ ├── favicon.ico ← The little icon shown in the browser tab
+│ ├── layout.js ← Sets up the page layout that wraps around your content
+│ └── page.js ← The main homepage code (what happens at the default link i.e. anjanie.ca)
+├── package.json ← Lists the tools and libraries your project uses
+├── .gitignore ← Tells Git which files to ignore when uploading to GitHub
+├── README.md ← This file! Explains what the project is and how to use it
+
+---
+
+## 🚀 How to Run the Project
+
+### 1️⃣ Open the project in VS Code
+If you haven’t yet, open the folder called **anjanie-website** in **VS Code**.
+
+### 2️⃣ Install the dependencies
+In the VS Code terminal, type this and press Enter:
+```bash
+npm install
+```
+
+This downloads everything the website needs to run.
+
+### 3️⃣ Start the website
+
+Once that’s done, run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You’ll see something like:
+```bash
+Local: http://localhost:3000
+```
+Click that link — your website is now running locally (i.e. only you can access it and only on this particular device)! 🎉
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✏️ How to Edit the Homepage of the Site
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Edit text and content:
+Open src/app/page.js — that’s where your homepage lives.
 
-## Learn More
+Change the colors or fonts:
+Go to src/app/globals.css.
 
-To learn more about Next.js, take a look at the following resources:
+Add images:
+Drop them into the public/ folder, then use them in your pages like this:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+<img src="/myphoto.png" alt="My Photo" />
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 💡 Helpful Tips
 
-## Deploy on Vercel
+If your page doesn’t update, press Ctrl + S (or Cmd + S) to save your changes — it refreshes automatically.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The browser will usually reload itself when you edit something.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+If the site breaks, you can stop the terminal (press Ctrl + C) and re-run npm run dev.
+
+## 🧠 What’s Next
+
+Once you get comfortable, you can try:
+
+Adding more pages by creating new files (like about.js) inside src/app.
+Learning basic HTML, CSS, and React — these are what Next.js is built on.
