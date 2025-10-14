@@ -78,3 +78,12 @@ Once you get comfortable, you can try:
 
 Adding more pages by creating new files (like about.js) inside src/app.
 Learning basic HTML, CSS, and React — these are what Next.js is built on.
+
+## To push/pull on git:
+git status
+git add . 
+git commit -m "[insert message]"
+git push
+
+git pull
+
