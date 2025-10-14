@@ -2,14 +2,16 @@
 
 :root {
   --background: #E5E9EC;
-  --foreground: #171717;
-  --accent: #bb7e8c;
-  --notgrey: #323031;
+  --foreground: #4c5b61;
+  --lavenderblush: #ebe2e4;
+  --skyblue: #74defd;
+  --jordyblue: #4c5b61;
 }
 
 @theme inline {
-  --color-accent: var(--accent);
-  --color-notgrey: var(--notgrey);
+  --color-lavenderblush: var(--lavenderblush);
+  --color-skyblue: var(--skyblue);
+  --color-jordyblue: var(--jordyblue);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
