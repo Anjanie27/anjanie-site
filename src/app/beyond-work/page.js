@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export default function About() {
+export default function Beyondwork() {
   return (
     <div>
-      Hi Anjanie, about me!
+      I just a baby
     </div>
   );
 }
