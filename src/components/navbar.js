@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import logo from "@/images/Final Logo.png";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("HOME");
+  const pathname = usePathname(); // ✅ Detects current route
 
   const navItems = [
     { label: "HOME", href: "/" },
@@ -42,20 +43,24 @@ export function Navbar() {
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex gap-10 text-sm font-medium tracking-wide">
-        {navItems.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            onClick={() => setActive(label)}
-            className={`relative cursor-pointer transition-colors duration-200 ${
-              active === label
-                ? "text-jordyblue after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-jordyblue"
-                : "hover:text-jordyblue"
-            }`}
-          >
-            {label}
-          </Link>
-        ))}
+        {navItems.map(({ label, href }) => {
+          const isActive =
+            pathname === href ||
+            (href !== "/" && pathname.startsWith(href)); // ✅ highlights based on URL
+          return (
+            <Link
+              key={label}
+              href={href}
+              className={`relative cursor-pointer transition-colors duration-200 ${
+                isActive
+                  ? "text-jordyblue after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-jordyblue"
+                  : "hover:text-jordyblue"
+              }`}
+            >
+              {label}
+            </Link>
+          );
+        })}
       </div>
 
       {/* Mobile Menu Button */}
@@ -68,24 +73,24 @@ export function Navbar() {
 
       {/* Full-Screen Mobile Menu */}
       {menuOpen && (
-        <div
-          className="fixed inset-0 h-screen w-screen bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 text-lg font-medium tracking-wide lg:hidden z-[1000] animate-fade-in"
-        >
-          {navItems.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={() => {
-                setActive(label);
-                setMenuOpen(false);
-              }}
-              className={`cursor-pointer transition-colors duration-200 ${
-                active === label ? "text-jordyblue" : "hover:text-jordyblue"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="fixed inset-0 h-screen w-screen bg-background/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 text-lg font-medium tracking-wide lg:hidden z-[1000] animate-fade-in">
+          {navItems.map(({ label, href }) => {
+            const isActive =
+              pathname === href ||
+              (href !== "/" && pathname.startsWith(href));
+            return (
+              <Link
+                key={label}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className={`cursor-pointer transition-colors duration-200 ${
+                  isActive ? "text-jordyblue" : "hover:text-jordyblue"
+                }`}
+              >
+                {label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </nav>
