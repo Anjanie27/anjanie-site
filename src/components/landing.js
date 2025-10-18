@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "./buttons";
 import { Linkedin } from "lucide-react";
+import Link from "next/link";
 
 export function Landing() {
   const [scrollY, setScrollY] = useState(0);
@@ -15,7 +16,7 @@ export function Landing() {
   }, []);
 
   // calculate transform for smooth float effect
-  const translateY = Math.min(scrollY * 0.15, 30); // caps at ~30px
+  const translateY = Math.min(scrollY * 0.15, 30);
   const floatStyle = {
     transform: `translateY(-${translateY}px)`,
     transition: "transform 0.2s ease-out",
@@ -29,12 +30,11 @@ export function Landing() {
       {/* Photo Card */}
       <div
         style={floatStyle}
-        className="
-          relative lg:absolute 
+        className="relative lg:absolute 
           lg:top-1/2 lg:left-[17%] lg:-translate-y-1/2 
           w-[75vw] sm:w-[60vw] md:w-[45vw] lg:w-[28vw]
           max-w-[480px] rounded-3xl shadow-2xl
-          bg-0 overflow-hidden border border-foreground/10
+          overflow-hidden border border-foreground/10
           mx-auto -mt-[20vh] lg:mt-0 z-50"
       >
         {/* Profile Image */}
@@ -72,15 +72,23 @@ export function Landing() {
           I'm <span className="font-semibold">Anjanie Sukhnandan</span>, and this is who I am :)
         </h3>
 
+        {/* Resume Button */}
         <div className="flex flex-wrap gap-4">
-          <Button title="Resume" />
-          <Button title="Projects" />
+          <a
+            href="/Fall%202025%20Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button title="Resume" />
+          </a>
         </div>
 
         <p className="text-sm sm:text-base lg:text-lg max-w-prose leading-relaxed text-foreground/80">
-          Green grapes with more green grapes and some more green grapes — and if
-          you really love me, then I will get green grapes. Do you know that I
-          like green grapes? That’s what I’m all about — green grapes!
+          I am a Math and Business student at the University of Waterloo with a passion for finance, analytics, and creative problem-solving. 
+          I’ve gained experience across roles in financial analysis, business development, and client services, where I’ve learned to balance data-driven 
+          insight with empathy and collaboration.
+          
+          Outside of work and school, I find joy in music and art, which help me stay grounded and creative. And if you ever want to make me smile — just bring me some green grapes 🍇.
         </p>
       </div>
     </section>
