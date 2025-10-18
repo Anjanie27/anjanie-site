@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import logo from "../../images/Final Logo.png";
+import logo from "../images/Final Logo.png";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
