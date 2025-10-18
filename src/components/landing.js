@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/buttons";
+import { Button } from "./buttons";
 import { Linkedin } from "lucide-react";
 
 export function Landing() {

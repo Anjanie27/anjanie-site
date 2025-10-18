@@ -3,19 +3,19 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Sunset from "@/images/Sunset.png";
-import SunsetR from "@/images/Sunset-R.png";
-import Deer from "@/images/Deer.png";
-import DeerR from "@/images/Deer-R.png";
-import Music from "@/images/Music.png";
-import MusicR from "@/images/Music-R.png";
-import Krishna from "@/images/Krishna.png";
-import KrishnaR from "@/images/Krishna-R.png";
-import Winter from "@/images/Winter.png";
-import WinterR from "@/images/Winter-R.png";
-import Mandir from "@/images/Mandir.png";
-import MandirR from "@/images/Mandir-R.png";
-import SectionDivider from "@/components/gold-line";
+import Sunset from "../../images/Sunset.png";
+import SunsetR from "../../images/Sunset-R.png";
+import Deer from "../../images/Deer.png";
+import DeerR from "../../images/Deer-R.png";
+import Music from "../../images/Music.png";
+import MusicR from "../../images/Music-R.png";
+import Krishna from "../../images/Krishna.png";
+import KrishnaR from "../../images/Krishna-R.png";
+import Winter from "../../images/Winter.png";
+import WinterR from "../../images/Winter-R.png";
+import Mandir from "../../images/Mandir.png";
+import MandirR from "../../images/Mandir-R.png";
+import SectionDivider from "../../components/gold-line";
 
 export default function Beyondwork() {
   const artworks = [

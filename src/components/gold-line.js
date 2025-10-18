@@ -1,5 +1,5 @@
 import Image from "next/image";
-import goldLine from "@/images/Gold Line.png";
+import goldLine from "../images/Gold Line.png";
 
 export default function SectionDivider() {
   return (
