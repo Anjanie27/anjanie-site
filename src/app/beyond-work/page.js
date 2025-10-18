@@ -92,67 +92,68 @@ export default function Beyondwork() {
       </section>
 
       {/* Artwork Grid */}
-      <div className="flex flex-wrap justify-center gap-10 sm:gap-14 md:gap-20 w-full px-4 sm:px-8">
+      <div className="flex flex-col sm:flex-wrap justify-center items-center gap-10 sm:gap-14 md:gap-20 w-full px-4 sm:px-8">
         {artworks.map((art, idx) => (
-          <div
-            key={idx}
-            className="relative cursor-pointer transition-transform duration-300 hover:-translate-y-1"
-            style={{ rotate: art.rotate }}
-            onClick={() => handleFlip(idx)}
-          >
+          <div key={idx} className="flex justify-center w-full sm:w-auto">
             <div
-              className={`relative w-[260px] sm:w-[320px] md:w-[360px] lg:w-[420px] aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-1 ring-foreground/10 ${art.bg} p-4 sm:p-5 md:p-6`}
+              className={`relative cursor-pointer transition-transform duration-300 hover:-translate-y-1 sm:[transform:rotate(var(--rotate))] [--rotate:0deg]`}
+              style={{ "--rotate": art.rotate }}
+              onClick={() => handleFlip(idx)}
             >
-              {/* Tape decoration */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-3 bg-[#f5f3c6] rotate-[1deg] opacity-80 shadow-sm" />
-
-              {/* Image container with flip animation */}
               <div
-                className={`relative w-full h-full transition-all duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] transform-gpu ${art.scale}`}
-                style={{
-                  transform: flipped[idx]
-                    ? "rotateY(180deg) scale(1.05)"
-                    : "rotateY(0deg) scale(1)",
-                  transformStyle: "preserve-3d",
-                }}
+                className={`relative w-[260px] sm:w-[320px] md:w-[360px] lg:w-[420px] aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-1 ring-foreground/10 ${art.bg} p-4 sm:p-5 md:p-6`}
               >
-                {/* FRONT image */}
-                <div
-                  className="absolute inset-0 transition-opacity duration-300"
-                  style={{
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    opacity: flipped[idx] ? 0 : 1,
-                  }}
-                >
-                  <Image
-                    src={art.front}
-                    alt={art.alt}
-                    fill
-                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
-                    className="object-contain rounded-md"
-                    placeholder="blur"
-                  />
-                </div>
+                {/* Tape decoration */}
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-3 bg-[#f5f3c6] rotate-[1deg] opacity-80 shadow-sm" />
 
-                {/* BACK image */}
+                {/* Image container with flip animation */}
                 <div
-                  className="absolute inset-0 transition-opacity duration-300"
+                  className={`relative w-full h-full transition-all duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] transform-gpu ${art.scale}`}
                   style={{
-                    transform: "rotateY(180deg)",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    opacity: flipped[idx] ? 1 : 0,
+                    transform: flipped[idx]
+                      ? "rotateY(180deg) scale(1.05)"
+                      : "rotateY(0deg) scale(1)",
+                    transformStyle: "preserve-3d",
                   }}
                 >
-                  <Image
-                    src={art.back}
-                    alt={`${art.alt} - back`}
-                    fill
-                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
-                    className="object-contain rounded-md"
-                    placeholder="blur"
-                  />
+                  {/* FRONT image */}
+                  <div
+                    className="absolute inset-0 transition-opacity duration-300"
+                    style={{
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                      opacity: flipped[idx] ? 0 : 1,
+                    }}
+                  >
+                    <Image
+                      src={art.front}
+                      alt={art.alt}
+                      fill
+                      sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
+                      className="object-contain rounded-md"
+                      placeholder="blur"
+                    />
+                  </div>
+
+                  {/* BACK image */}
+                  <div
+                    className="absolute inset-0 transition-opacity duration-300"
+                    style={{
+                      transform: "rotateY(180deg)",
+                      backfaceVisibility: "hidden",
+                      WebkitBackfaceVisibility: "hidden",
+                      opacity: flipped[idx] ? 1 : 0,
+                    }}
+                  >
+                    <Image
+                      src={art.back}
+                      alt={`${art.alt} - back`}
+                      fill
+                      sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
+                      className="object-contain rounded-md"
+                      placeholder="blur"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -160,6 +161,7 @@ export default function Beyondwork() {
         ))}
       </div>
 
+      {/* Divider */}
       <div className="py-12 sm:py-16 lg:py-20 w-full flex justify-center">
         <SectionDivider />
       </div>
