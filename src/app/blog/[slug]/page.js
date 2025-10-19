@@ -54,14 +54,45 @@ export default async function BlogPost({ params }) {
       </div>
 
       {/* Blog Content */}
-      <article className="w-full prose prose-lg prose-slate max-w-none bg-white/80 backdrop-blur-sm rounded-xl shadow-sm p-8 sm:p-12 border border-foreground/10">
-        <h1 className="text-5xl font-bold text-foreground mb-6">
+      <article
+        className="
+          w-full 
+          prose prose-lg prose-slate
+          prose-headings:font-bold 
+          prose-p:my-6 prose-li:my-3
+          prose-ul:list-disc prose-ol:list-decimal 
+          prose-ul:pl-8 prose-ol:pl-8 
+          prose-li:marker:text-jordyblue 
+          leading-relaxed tracking-wide
+          max-w-none 
+          bg-white/80 backdrop-blur-sm rounded-xl shadow-sm 
+          p-8 sm:p-12 border border-foreground/10
+        "
+      >
+        <h1 className="text-5xl font-bold text-foreground mb-8">
           {data.title || slug}
         </h1>
+
         {data.date && (
-          <p className="text-foreground/70 italic mb-10">{data.date}</p>
+          <p className="text-foreground/70 italic mb-12">{data.date}</p>
         )}
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            ul: ({ node, ...props }) => (
+              <ul className="list-disc list-inside my-6 space-y-3" {...props} />
+            ),
+            li: ({ node, ...props }) => (
+              <li className="my-1 leading-relaxed" {...props} />
+            ),
+            p: ({ node, ...props }) => (
+              <p className="my-6 leading-relaxed" {...props} />
+            ),
+          }}
+        >
+          {content}
+        </ReactMarkdown>
       </article>
     </main>
   );
