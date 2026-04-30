@@ -65,11 +65,11 @@ export function Landing() {
       {/* Right Panel */}
       <div className="flex flex-col justify-center items-start gap-6 px-8 sm:px-12 lg:px-[10vw] py-16 lg:py-0 w-full lg:w-[60vw] text-foreground relative z-10">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-          Hello
+          Hello!
         </h1>
 
         <h3 className="text-lg sm:text-xl lg:text-2xl text-foreground/90">
-          I'm <span className="font-semibold">Anjanie Sukhnandan</span>, and this is who I am :)
+          Welcome to my world! :)
         </h3>
 
         {/* Resume Button */}
@@ -84,11 +84,14 @@ export function Landing() {
         </div>
 
         <p className="text-sm sm:text-base lg:text-lg max-w-prose leading-relaxed text-foreground/80">
-          I am a Math and Business student at the University of Waterloo with a passion for finance, analytics, and creative problem-solving. 
-          I’ve gained experience across roles in financial analysis, business development, and client services, where I’ve learned to balance data-driven 
-          insight with empathy and collaboration.
-          
-          Outside of work and school, I find joy in music and art, which help me stay grounded and creative. And if you ever want to make me smile — just bring me some green grapes 🍇.
+         My name is Anjanie Sukhnandan, and I’m a Mathematics student at the University of Waterloo, specializing in Business with a minor in Computing. Some may describe me as versatile, while others might say I’m still figuring things out, and in many ways, both are true.
+
+         Like many of my peers, I began my academic journey with a clear path in mind: pursuing Actuarial Science. However, in my third year, I made the decision to pivot after realizing that the actuarial field did not align with my passions. Instead, I found myself drawn to the world of business, particularly trading and investments. There’s something about understanding market trends and how everything moves together that I find really exciting (and yeah, it definitely keeps me up at night sometimes). 
+         
+         My computing minor, while initially unplanned, has become one of the most valuable parts of my education. It introduced me to a completely different way of thinking, more structured, more analytical, and it’s changed how I approach problems in general.
+         Throughout my degree, I have gained experience across financial analysis, business development, case studies, and client services. These roles have taught me how to balance data-driven decision-making with logic, empathy, and collaboration.
+         
+         Outside of academics and professional work, I find joy in music and art, which allow me to engage my creativity. I am also deeply committed to seva (selfless service), a core principle of my faith in Hinduism. Whether it is a small act like helping someone in need or organizing larger initiatives such as food drives, giving back has always been a meaningful and grounding part of who I am.
         </p>
       </div>
     </section>
