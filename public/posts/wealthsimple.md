@@ -56,4 +56,4 @@ Wealthsimple’s biggest headline? The launch of GOLD — a modern way to buy an
 Gold prices have doubled in the past two years — and now, they’ve made it as easy to buy as a stock or crypto token.
 
 
-Wealthsimple’s new suite feels like a statement — that smart, sophisticated investing shouldn’t be limited to Bay Street or hedge funds. Whether you’re a beginner or a seasoned trader, these tools make it possible to act like a pro — with AI, automation, and accessibility leading the way.
+Wealthsimple’s new suite feels like a statement- that smart, sophisticated investing shouldn’t be limited to Bay Street or hedge funds. Whether you’re a beginner or a seasoned trader, these tools make it possible to act like a pro — with AI, automation, and accessibility leading the way.
