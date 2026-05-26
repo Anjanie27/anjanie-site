@@ -10,7 +10,7 @@ export function ClientLayout({ children }) {
   return (
     <>
       <Navbar />
-      <div className={`${isLanding ? "" : "pt-32"} h-full`}>
+      <div className={`${isLanding ? "pt-24 lg:pt-28" : "pt-32"} min-h-screen`}>
         {children}
       </div>
     </>
