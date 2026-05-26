@@ -23,7 +23,7 @@ export function Landing() {
   };
 
   return (
-    <section className="relative flex flex-col lg:flex-row h-auto lg:h-screen bg-background overflow-hidden">
+    <section className="relative flex flex-col lg:flex-row min-h-screen bg-background overflow-x-hidden">
       {/* Left Panel */}
       <div className="bg-jordyblue w-full lg:w-[40vw] h-[40vh] lg:h-full flex items-center justify-center text-white text-xl" />
 
