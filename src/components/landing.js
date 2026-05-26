@@ -91,7 +91,7 @@ export function Landing() {
          My computing minor, while initially unplanned, has become one of the most valuable parts of my education. It introduced me to a completely different way of thinking, more structured, more analytical, and it’s changed how I approach problems in general.
          Throughout my degree, I have gained experience across financial analysis, business development, case studies, and client services. These roles have taught me how to balance data-driven decision-making with logic, empathy, and collaboration.
          
-         Outside of academics and professional work, I find joy in music and art, which allow me to engage my creativity. I am also deeply committed to seva (selfless service), a core principle of my faith in Hinduism. Whether it is a small act like helping someone in need or organizing larger initiatives such as food drives, giving back has always been a meaningful and grounding part of who I am. :)
+         Outside of academics and professional work, I find joy in music and art, which allow me to engage my creativity. I am also deeply committed to seva (selfless service), a core principle of my faith in Hinduism. Whether it is a small act like helping someone in need or organizing larger initiatives such as food drives, giving back has always been a meaningful and grounding part of who I am.
         </p>
       </div>
     </section>
