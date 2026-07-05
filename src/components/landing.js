@@ -5,10 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./buttons";
 import {
+  BadgeCheck,
   BarChart3,
+  Briefcase,
+  FileText,
+  GraduationCap,
   HeartHandshake,
   Linkedin,
-  Palette,
   Sparkles,
 } from "lucide-react";
 
@@ -16,17 +19,38 @@ const focusCards = [
   {
     icon: BarChart3,
     title: "Finance & Analytics",
-    text: "Forecasting, market research, reporting, and thoughtful business decisions.",
+    text: "Case studies, AI research, KPI dashboards, forecasting, and data-informed decision-making.",
   },
   {
-    icon: Palette,
-    title: "Creative Balance",
-    text: "Painting, music, and design that bring personality into analytical work.",
+    icon: Briefcase,
+    title: "Business Strategy",
+    text: "Experience across BMO, financial analysis, operations, reporting, and product comparison work.",
   },
   {
     icon: HeartHandshake,
-    title: "Seva & Community",
-    text: "Giving back through service, leadership, and meaningful community initiatives.",
+    title: "Leadership & Seva",
+    text: "Board-level event leadership, youth initiatives, food drives, and community engagement.",
+  },
+];
+
+const resumeHighlights = [
+  {
+    icon: Briefcase,
+    eyebrow: "Current role",
+    title: "BMO Growth Office Analyst",
+    text: "AI research, case studies, KPI dashboards, and product analysis for internal stakeholders.",
+  },
+  {
+    icon: GraduationCap,
+    eyebrow: "Education",
+    title: "University of Waterloo Mathematics",
+    text: "Business specialization, computing minor, and actively studying toward CFA Level I.",
+  },
+  {
+    icon: BadgeCheck,
+    eyebrow: "Core toolkit",
+    title: "Excel, Python, SQL & Data Analysis",
+    text: "Advanced Excel dashboards, Google Analytics, HubSpot, MS Office, Canva, and reporting tools.",
   },
 ];
 
@@ -89,7 +113,7 @@ export function Landing() {
                   Let’s connect
                 </p>
                 <p className="text-xs text-foreground/65">
-                  Finance, creativity, community & growth
+                  Finance, analytics, creativity & community
                 </p>
               </div>
               <a
@@ -115,22 +139,69 @@ export function Landing() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-8 text-foreground/76 sm:text-lg lg:text-xl">
-            A Mathematics student at the University of Waterloo with a business
-            specialization and computing minor, exploring the space where
-            finance, creativity, analytical thinking, and service come together.
+            A University of Waterloo Mathematics student with a business
+            specialization and computing minor, currently building experience
+            across finance, analytics, strategy, and community leadership.
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
             <a
-              href="/Resume.pdf"
+              href="/anjanie-sukhnandan-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button title="View Resume" />
+              <Button title="View Latest Resume" />
             </a>
             <Link href="/experience">
               <Button title="Explore Experience" variant="outline" />
             </Link>
+          </div>
+
+          <div className="mt-7 w-full max-w-3xl animate-fade-up rounded-[1.75rem] border border-white/70 bg-white/58 p-5 text-left shadow-xl shadow-slate-500/10 backdrop-blur-xl sm:p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-jordyblue">
+                  <FileText size={15} />
+                  Resume snapshot
+                </p>
+                <h2 className="mt-2 text-xl font-black text-foreground sm:text-2xl">
+                  Growth Office Analyst, Finance & Community Leader
+                </h2>
+              </div>
+              <a
+                href="/anjanie-sukhnandan-resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-jordyblue/30 bg-white/62 px-5 py-3 text-sm font-bold text-foreground backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-jordyblue hover:bg-white hover:text-jordyblue"
+              >
+                Open PDF
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </a>
+            </div>
+
+            <div className="mt-5 grid gap-3 lg:grid-cols-3">
+              {resumeHighlights.map(({ icon: Icon, eyebrow, title, text }) => (
+                <div
+                  key={title}
+                  className="rounded-[1.25rem] border border-white/65 bg-gradient-to-br from-white/80 via-white/60 to-lavenderblush/50 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-jordyblue to-skyblue text-white shadow-lg shadow-jordyblue/20">
+                    <Icon size={19} />
+                  </div>
+                  <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-jordyblue/80">
+                    {eyebrow}
+                  </p>
+                  <h3 className="mt-1 text-sm font-black text-foreground">
+                    {title}
+                  </h3>
+                  <p className="mt-2 text-xs leading-5 text-foreground/68">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="reveal-stagger mt-10 grid w-full max-w-3xl gap-4 sm:grid-cols-3">
@@ -156,25 +227,25 @@ export function Landing() {
         <div className="mx-auto mb-7 h-1 w-28 rounded-full bg-gradient-to-r from-jordyblue via-skyblue to-[#f9a8d4] shimmer-line" />
         <div className="grid gap-6 text-left text-sm leading-7 text-foreground/76 sm:text-base lg:grid-cols-2 lg:text-lg">
           <p>
-            Some may describe me as versatile, while others might say I’m still
-            figuring things out, and in many ways, both are true. I began my
-            academic journey with a clear path in mind: Actuarial Science.
+            My background brings together finance, analytics, business, and
+            technology. From building Excel dashboards and financial forecasts
+            to researching AI and market trends, I enjoy turning complex
+            information into clear decisions.
           </p>
           <p>
-            In my third year, I pivoted after realizing that the actuarial field
-            did not align with my passions. I found myself drawn to business,
-            trading, investments, and understanding how market trends move
-            together.
+            At BMO, I support Growth Office work through case studies, product
+            comparison analysis, internal research, KPI reporting, and process
+            documentation that helps teams work more efficiently.
           </p>
           <p>
-            My computing minor became one of the most valuable parts of my
-            education. It introduced me to structured, analytical problem
-            solving and changed how I approach complex decisions.
+            My Waterloo Mathematics degree has strengthened the way I approach
+            problem-solving, while my business specialization and computing
+            minor have helped me connect numbers, strategy, and technology.
           </p>
           <p>
-            Outside academics and work, I find joy in music and art. I am also
-            deeply committed to seva, whether through small acts of help or
-            larger initiatives such as food drives and community events.
+            Outside academics and work, I am deeply committed to seva. Through
+            Devi Mandir, I have led events, youth initiatives, social media, and
+            food drives that support community connection and impact.
           </p>
         </div>
       </div>
