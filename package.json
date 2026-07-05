@@ -1,0 +1,30 @@
+{
+  "name": "anjanie-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "amqplib": "^0.10.9",
+    "clsx": "^2.1.1",
+    "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.545.0",
+    "next": "15.5.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "tailwind": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^4"
+  }
+}
