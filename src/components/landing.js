@@ -36,7 +36,7 @@ const focusCards = [
 const resumeHighlights = [
   {
     icon: Briefcase,
-    eyebrow: "Current role",
+    eyebrow: "Most Recent Co-op",
     title: "BMO Growth Office Analyst",
     text: "AI research, case studies, KPI dashboards, and product analysis for internal stakeholders.",
   },
@@ -146,7 +146,7 @@ export function Landing() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
             <a
-              href="/anjanie-sukhnandan-resume.pdf"
+              href="/Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -169,7 +169,7 @@ export function Landing() {
                 </h2>
               </div>
               <a
-                href="/anjanie-sukhnandan-resume.pdf"
+                href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-jordyblue/30 bg-white/62 px-5 py-3 text-sm font-bold text-foreground backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-jordyblue hover:bg-white hover:text-jordyblue"

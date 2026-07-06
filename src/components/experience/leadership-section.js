@@ -42,7 +42,7 @@ export default function LeadershipSection() {
               Board of Directors, Director of Events
             </h3>
             <p className="mt-2 text-sm text-foreground/68 sm:text-base">
-              Devi Mandir · Waterloo, ON · Sept 2023 – Aug 2024
+              Devi Mandir · Pickering, ON · Sept 2025 – Present
             </p>
             <ul className="mt-6 grid gap-3 text-sm leading-7 text-foreground/76 sm:text-base">
               <li>

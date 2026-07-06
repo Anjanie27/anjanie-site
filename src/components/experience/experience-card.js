@@ -10,7 +10,7 @@ export default function ExperienceCard({ exp, index }) {
       <article className="magnetic-card relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/66 p-6 shadow-lg shadow-slate-500/10 backdrop-blur-xl sm:p-8">
         {exp.featured && (
           <div className="absolute right-5 top-5 rounded-full bg-gradient-to-r from-jordyblue to-[#f9a8d4] px-3 py-1 text-[0.65rem] font-black uppercase tracking-[0.18em] text-white shadow-lg shadow-jordyblue/20">
-            Current
+            Recent
           </div>
         )}
         <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-jordyblue via-skyblue to-[#f9a8d4]" />

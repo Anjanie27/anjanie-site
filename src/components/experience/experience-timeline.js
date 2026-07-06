@@ -5,7 +5,7 @@ export default function ExperienceTimeline() {
     {
       company: "Bank of Montreal (BMO)",
       role: "Growth Office Analyst",
-      period: "Jan 2026 – Present",
+      period: "Jan 2026 – April 2026",
       location: "Toronto, ON",
       featured: true,
       tags: [

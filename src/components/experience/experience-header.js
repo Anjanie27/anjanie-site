@@ -43,7 +43,7 @@ export default function ExperienceHeader() {
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
-              href="/anjanie-sukhnandan-resume-july-2026.pdf"
+              href="/Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="group relative overflow-hidden rounded-full bg-gradient-to-r from-jordyblue via-skyblue to-[#f9a8d4] px-7 py-3 text-sm font-bold text-white shadow-lg shadow-jordyblue/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
