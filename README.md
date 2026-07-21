@@ -87,3 +87,35 @@ git push
 
 git pull
 
+
+## Animated UI refresh
+
+This version adds a more polished, interactive feel across the site:
+
+- animated gradient backgrounds and gradient text
+- glassmorphism cards and soft floating background orbs
+- improved sticky navbar with active page states and animated mobile menu
+- redesigned landing page with interactive spotlight, hover effects, and focus cards
+- upgraded experience cards with animated timeline styling
+- interactive artwork gallery with flip cards, captions, and hover states
+- refreshed blog index and blog post pages
+- upgraded contact form styling and feedback states
+
+### Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+For the contact form, copy `.env.example` to `.env.local` and fill in your EmailJS values.
+
+## Trading dashboard
+
+Open `/trading` to use the live intraday workspace. It includes:
+
+- 1-minute TradingView candles with VWAP, EMA, RSI, and MACD
+- quick ticker switching and a live US market-gainers screener
+- manual high/low logging saved in the browser with CSV export
+- an on-page dashboard manual
+- a charting-signal cheat sheet for trend, momentum, volume, breakouts, and risk checks

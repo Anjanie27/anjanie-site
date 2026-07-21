@@ -1,16 +1,7 @@
-import Image from "next/image";
-import goldLine from "../images/Gold Line.png";
-
 export default function SectionDivider() {
   return (
-    <div className="relative w-full h-[10px] overflow-hidden m-0 p-0">
-      <Image
-        src={goldLine}
-        alt="Section divider"
-        fill
-        className="object-cover"
-        priority
-      />
+    <div className="mx-auto my-0 flex w-full max-w-5xl items-center justify-center px-6">
+      <div className="shimmer-line h-[3px] w-full rounded-full bg-gradient-to-r from-transparent via-[#f5c66f] to-transparent" />
     </div>
   );
 }

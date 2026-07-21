@@ -5,13 +5,19 @@ import Link from "next/link";
 
 export default function BlogIndex() {
   const postsDirectory = path.join(process.cwd(), "public", "posts");
-  const files = fs.readdirSync(postsDirectory);
+  const files = fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"));
 
-  // Parse metadata for each post
   const posts = files.map((filename) => {
-    const fileContent = fs.readFileSync(path.join(postsDirectory, filename), "utf8");
+    const fileContent = fs.readFileSync(
+      path.join(postsDirectory, filename),
+      "utf8",
+    );
+
     const { data } = matter(fileContent);
     const slug = filename.replace(".md", "");
+
     return {
       slug,
       title: data.title || slug,
@@ -20,45 +26,63 @@ export default function BlogIndex() {
     };
   });
 
-  // Sort posts by date (newest first)
-  const sortedPosts = posts.sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+  const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-lavenderblush/50 via-background to-lavenderblush/40 text-foreground py-24 px-6 flex flex-col items-center">
-      {/* Header */}
-      <section className="max-w-5xl text-center animate-slide-down mb-16">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-tight">The Blog ✍️</h1>
-        <p className="text-foreground/80 text-lg max-w-2xl mx-auto">
-          A growing collection of thoughts, reflections, and experiments — written in Markdown and crafted with care.
+    <main className="relative flex min-h-screen flex-col items-center overflow-hidden px-5 py-24 text-foreground sm:px-8">
+      <div className="absolute inset-0 -z-10 animated-gradient-bg" />
+      <div className="soft-orb left-[6%] top-24 h-32 w-32 bg-skyblue/22" />
+      <div className="soft-orb right-[10%] top-40 h-40 w-40 bg-[#f9a8d4]/20 [animation-delay:1.4s]" />
+
+      <section className="mb-12 max-w-5xl text-center animate-slide-down">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.34em] text-jordyblue">
+          Writing
+        </p>
+
+        <h1 className="animated-gradient-text text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+          The Blog ✍️
+        </h1>
+
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-foreground/76 sm:text-lg">
+          A growing collection of thoughts, reflections, and experiments —
+          written in Markdown and crafted with care.
         </p>
       </section>
 
-      {/* Scrollable Blog List */}
-      <div className="w-full max-w-3xl h-[70vh] overflow-y-auto scrollbar-thin scrollbar-thumb-jordyblue/50 scrollbar-track-transparent">
-        <ul className="space-y-6 sm:space-y-8 px-2 sm:px-6">
-          {sortedPosts.map((post) => (
-            <li
-              key={post.slug}
-              className="transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.01]"
-            >
-              <Link
-                href={`/blog/${post.slug}`}
-                className="block bg-white/70 backdrop-blur-sm border border-foreground/10 rounded-xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                <h2 className="text-2xl font-semibold text-jordyblue mb-2">
+      <section className="w-full max-w-4xl space-y-6">
+        {sortedPosts.map((post, index) => (
+          <Link
+            key={post.slug}
+            href={`/blog/${post.slug}`}
+            className="magnetic-card group relative block overflow-hidden rounded-[1.6rem] border border-white/70 bg-white/72 p-6 shadow-sm backdrop-blur-md animate-fade-up"
+            style={{ animationDelay: `${index * 0.07}s` }}
+          >
+            <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-jordyblue via-skyblue to-[#f9a8d4]" />
+
+            <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-skyblue/18 blur-2xl transition-transform duration-500 group-hover:scale-150" />
+
+            <div className="relative flex items-start justify-between gap-5">
+              <div className="min-w-0 flex-1">
+                <h2 className="line-clamp-2 text-2xl font-black text-foreground transition-colors duration-300 group-hover:text-jordyblue">
                   {post.title}
                 </h2>
-                <p className="text-sm text-foreground/60 mb-2">{post.date}</p>
-                <p className="text-foreground/80 leading-relaxed text-base sm:text-lg">
-                  {post.description}
+
+                <p className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-foreground/50">
+                  {post.date}
                 </p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+              </div>
+
+              <span className="shrink-0 rounded-full bg-gradient-to-r from-jordyblue/12 to-[#f9a8d4]/16 px-4 py-2 text-sm font-bold text-jordyblue transition-all duration-300 group-hover:bg-jordyblue group-hover:text-white">
+                Read →
+              </span>
+            </div>
+
+            <p className="relative mt-4 line-clamp-3 text-base leading-7 text-foreground/72 sm:text-lg">
+              {post.description}
+            </p>
+          </Link>
+        ))}
+      </section>
     </main>
   );
 }

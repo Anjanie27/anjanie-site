@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,100 +24,122 @@ export default function Beyondwork() {
       front: Sunset,
       back: SunsetR,
       alt: "Sunset Serenity",
+      caption: "Warm landscapes and quiet reflection.",
       rotate: "-3deg",
-      bg: "bg-gradient-to-br from-[#ffb78a]/70 via-[#f78963]/60 to-[#f5a07b]/70",
+      bg: "from-[#ffb78a]/80 via-[#f78963]/55 to-[#f5d0b9]/80",
       scale: "scale-[0.9]",
     },
     {
       front: Deer,
       back: DeerR,
       alt: "Nature’s Reflection",
+      caption: "A calm moment between nature and stillness.",
       rotate: "2deg",
-      bg: "bg-gradient-to-br from-[#6db2f5]/70 via-[#4475cf]/60 to-[#274b8f]/70",
+      bg: "from-[#6db2f5]/78 via-[#4475cf]/55 to-[#d7e9ff]/80",
       scale: "scale-[1]",
     },
     {
       front: Music,
       back: MusicR,
       alt: "Harmony in Motion",
+      caption: "Inspired by rhythm, sound, and movement.",
       rotate: "4deg",
-      bg: "bg-gradient-to-br from-[#d9b28d]/60 via-[#b98a62]/50 to-[#a0714c]/60",
+      bg: "from-[#d9b28d]/70 via-[#b98a62]/52 to-[#f4dbc4]/78",
       scale: "scale-[1]",
     },
     {
       front: Krishna,
       back: KrishnaR,
       alt: "Divine Joy",
+      caption: "Spiritual symbolism through soft detail.",
       rotate: "-4deg",
-      bg: "bg-gradient-to-br from-[#f7e7e7]/70 via-[#faf6f2]/60 to-[#ffffff]/70",
+      bg: "from-[#f7e7e7]/82 via-[#faf6f2]/68 to-white/88",
       scale: "scale-[1]",
     },
     {
       front: Winter,
       back: WinterR,
       alt: "Peaceful Nights",
+      caption: "Cool tones, winter skies, and quiet peace.",
       rotate: "-3deg",
-      bg: "bg-gradient-to-br from-[#8fd0ff]/70 via-[#60b8f2]/60 to-[#3a8bc9]/70",
+      bg: "from-[#8fd0ff]/78 via-[#60b8f2]/55 to-[#ddefff]/84",
       scale: "scale-[0.9]",
     },
     {
       front: Mandir,
       back: MandirR,
       alt: "Ayodhya Mandir",
+      caption: "Faith, architecture, and devotion in colour.",
       rotate: "3deg",
-      bg: "bg-gradient-to-br from-[#fca968]/70 via-[#f2753b]/60 to-[#e85722]/70",
+      bg: "from-[#fca968]/80 via-[#f2753b]/58 to-[#ffe0c3]/82",
       scale: "scale-[1]",
     },
   ];
 
   const [flipped, setFlipped] = useState(Array(artworks.length).fill(false));
+  const [active, setActive] = useState(null);
 
   const handleFlip = (index) => {
+    setActive(index);
     setFlipped((prev) => prev.map((f, i) => (i === index ? !f : f)));
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-lavenderblush/50 via-background to-lavenderblush/40 py-24 flex flex-col items-center overflow-x-hidden">
-      {/* Intro Section */}
-      <section className="max-w-5xl text-center animate-slide-down mb-20">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-5 text-foreground tracking-tight">
+    <main className="relative flex min-h-screen flex-col items-center overflow-hidden px-4 py-24 text-foreground sm:px-8">
+      <div className="absolute inset-0 -z-10 animated-gradient-bg" />
+      <div className="soft-orb left-8 top-24 h-32 w-32 bg-skyblue/24" />
+      <div className="soft-orb right-8 top-52 h-44 w-44 bg-[#f9a8d4]/22 [animation-delay:1.4s]" />
+
+      <section className="mb-16 max-w-5xl text-center animate-slide-down">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.34em] text-jordyblue">
+          Creative side
+        </p>
+        <h1 className="animated-gradient-text text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
           Beyond Work & School 🎨
         </h1>
-        <p className="text-foreground/80 text-lg leading-relaxed max-w-3xl mx-auto">
+        <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-foreground/76 sm:text-lg">
           Outside my analytical and technical work, I find calm in painting and
           sketching. Art helps me express balance — between precision and
           creativity — whether it’s a peaceful landscape, spiritual symbolism,
-          or a visual rhythm inspired by music. These moments remind me to slow
-          down and create for the sake of creating.
+          or a visual rhythm inspired by music.
         </p>
+        <div className="mx-auto mt-7 w-fit rounded-full border border-white/70 bg-white/62 px-5 py-3 text-sm font-semibold text-foreground/68 shadow-sm backdrop-blur-md">
+          Click any artwork to flip it ✨
+        </div>
       </section>
 
-      {/* Artwork Grid */}
-      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-10 sm:gap-14 md:gap-20 w-full px-4 sm:px-8">
+      <div className="grid w-full max-w-7xl grid-cols-1 place-items-center gap-10 sm:grid-cols-2 lg:grid-cols-3">
         {artworks.map((art, idx) => (
-          <div
-            key={idx}
-            className="relative cursor-pointer transition-transform duration-300 hover:-translate-y-1 mx-auto"
-            style={{ rotate: art.rotate }}
+          <button
+            key={art.alt}
+            type="button"
+            className="group relative mx-auto cursor-pointer border-none bg-transparent text-left outline-none transition-transform duration-300 hover:-translate-y-2 focus-visible:ring-4 focus-visible:ring-jordyblue/30 animate-fade-up"
+            style={{ rotate: art.rotate, animationDelay: `${idx * 0.07}s` }}
             onClick={() => handleFlip(idx)}
+            onMouseEnter={() => setActive(idx)}
           >
-            <div
-              className={`relative w-[260px] sm:w-[320px] md:w-[360px] lg:w-[420px] aspect-[4/3] rounded-xl overflow-hidden shadow-lg ring-1 ring-foreground/10 ${art.bg} p-4 sm:p-5 md:p-6`}
-            >
-              {/* Tape decoration */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-3 bg-[#f5f3c6] rotate-[1deg] opacity-80 shadow-sm" />
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-r from-jordyblue/22 via-skyblue/16 to-[#f9a8d4]/22 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
 
-              {/* Image container with flip animation */}
+            <div
+              className={`relative aspect-[4/3] w-[260px] overflow-hidden rounded-[1.6rem] bg-gradient-to-br ${art.bg} p-4 shadow-xl shadow-slate-500/14 ring-1 ring-white/60 backdrop-blur-sm sm:w-[320px] md:w-[350px]`}
+            >
+              <div className="absolute -top-3 left-1/2 h-4 w-28 -translate-x-1/2 rotate-[1deg] bg-[#fff8c9]/86 shadow-sm" />
+              <div className="absolute bottom-4 left-4 right-4 z-20 translate-y-4 rounded-2xl border border-white/60 bg-white/72 p-3 opacity-0 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <p className="text-sm font-bold text-foreground">{art.alt}</p>
+                <p className="text-xs leading-5 text-foreground/66">
+                  {art.caption}
+                </p>
+              </div>
+
               <div
-                className={`relative w-full h-full transition-all duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] transform-gpu ${art.scale}`}
+                className={`relative h-full w-full transform-gpu transition-all duration-700 ease-[cubic-bezier(0.4,0.2,0.2,1)] ${art.scale}`}
                 style={{
                   transform: flipped[idx]
-                    ? "rotateY(180deg) scale(1.05)"
+                    ? "rotateY(180deg) scale(1.04)"
                     : "rotateY(0deg) scale(1)",
                   transformStyle: "preserve-3d",
                 }}
               >
-                {/* FRONT image */}
                 <div
                   className="absolute inset-0 transition-opacity duration-300"
                   style={{
@@ -129,13 +152,12 @@ export default function Beyondwork() {
                     src={art.front}
                     alt={art.alt}
                     fill
-                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
-                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 350px, 350px"
+                    className="rounded-xl object-contain drop-shadow-lg transition-transform duration-500 group-hover:scale-[1.03]"
                     placeholder="blur"
                   />
                 </div>
 
-                {/* BACK image */}
                 <div
                   className="absolute inset-0 transition-opacity duration-300"
                   style={{
@@ -147,37 +169,40 @@ export default function Beyondwork() {
                 >
                   <Image
                     src={art.back}
-                    alt={`${art.alt} - back`}
+                    alt={`${art.alt} reverse side`}
                     fill
-                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 360px, 420px"
-                    className="object-contain rounded-md"
+                    sizes="(max-width: 768px) 260px, (max-width: 1024px) 350px, 350px"
+                    className="rounded-xl object-contain drop-shadow-lg"
                     placeholder="blur"
                   />
                 </div>
               </div>
             </div>
-          </div>
+          </button>
         ))}
       </div>
 
-      {/* Divider */}
-      <div className="py-12 sm:py-16 lg:py-20 w-full flex justify-center">
+      {active !== null && (
+        <div className="mt-10 rounded-full border border-white/70 bg-white/62 px-5 py-3 text-center text-sm font-semibold text-foreground/72 shadow-sm backdrop-blur-md animate-fade-up">
+          Viewing: {artworks[active].alt}
+        </div>
+      )}
+
+      <div className="flex w-full justify-center py-12 sm:py-16 lg:py-20">
         <SectionDivider />
       </div>
 
-      {/* Instagram Button */}
       <Link
         href="https://instagram.com/anjanie.arts"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-3 bg-jordyblue text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-skyblue hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+        className="group inline-flex items-center gap-3 overflow-hidden rounded-full bg-gradient-to-r from-jordyblue via-skyblue to-[#f9a8d4] px-7 py-3 font-bold text-white shadow-lg shadow-jordyblue/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
       >
-        {/* Instagram Icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-5 h-5"
+          className="h-5 w-5 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110"
         >
           <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 2.25a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" />
         </svg>
